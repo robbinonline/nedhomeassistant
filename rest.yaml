@@ -1,0 +1,143 @@
+- resource: "https://ned.nl/sites/default/files/dataset_chart_jsons/Energy_Weather_Forecast.json"
+  scan_interval: 14400
+  timeout: 10
+  sensor:
+    - name: "NED date day 1"
+      unique_id: ned_date_day_1
+      value_template: "{{ value_json[0].date }}"
+    - name: "NED sunHeight day 1"
+      unique_id: ned_sunheight_day_1
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[0].sunHeight | int }}"
+    - name: "NED windHeight day 1"
+      unique_id: ned_windheight_day_1
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[0].windHeight | int }}"
+    - name: "NED sunAverage day 1"
+      unique_id: ned_sunaverage_day_1
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[0].sunAverage | int }}"
+    - name: "NED windAverage day 1"
+      unique_id: ned_windaverage_day_1
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[0].windAverage | int }}"
+
+    - name: "NED date day 2"
+      unique_id: ned_date_day_2
+      value_template: "{{ value_json[1].date }}"
+    - name: "NED sunHeight day 2"
+      unique_id: ned_sunheight_day_2
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[1].sunHeight | int }}"
+    - name: "NED windHeight day 2"
+      unique_id: ned_windheight_day_2
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[1].windHeight | int }}"
+    - name: "NED sunAverage day 2"
+      unique_id: ned_sunaverage_day_2
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[1].sunAverage | int }}"
+    - name: "NED windAverage day 2"
+      unique_id: ned_windaverage_day_2
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[1].windAverage | int }}"
+
+    - name: "NED date day 3"
+      unique_id: ned_date_day_3
+      value_template: "{{ value_json[2].date }}"
+    - name: "NED sunHeight day 3"
+      unique_id: ned_sunheight_day_3
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[2].sunHeight | int }}"
+    - name: "NED windHeight day 3"
+      unique_id: ned_windheight_day_3
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[2].windHeight | int }}"
+    - name: "NED sunAverage day 3"
+      unique_id: ned_sunaverage_day_3
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[2].sunAverage | int }}"
+    - name: "NED windAverage day 3"
+      unique_id: ned_windaverage_day_3
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[2].windAverage | int }}"
+
+    - name: "NED date day 4"
+      unique_id: ned_date_day_4
+      value_template: "{{ value_json[3].date }}"
+    - name: "NED sunHeight day 4"
+      unique_id: ned_sunheight_day_4
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[3].sunHeight | int }}"
+    - name: "NED windHeight day 4"
+      unique_id: ned_windheight_day_4
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[3].windHeight | int }}"
+    - name: "NED sunAverage day 4"
+      unique_id: ned_sunaverage_day_4
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[3].sunAverage | int }}"
+    - name: "NED windAverage day 4"
+      unique_id: ned_windaverage_day_4
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[3].windAverage | int }}"
+
+    - name: "NED date day 5"
+      unique_id: ned_date_day_5
+      value_template: "{{ value_json[4].date }}"
+    - name: "NED sunHeight day 5"
+      unique_id: ned_sunheight_day_5
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[4].sunHeight | int }}"
+    - name: "NED windHeight day 5"
+      unique_id: ned_windheight_day_5
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[4].windHeight | int }}"
+    - name: "NED sunAverage day 5"
+      unique_id: ned_sunaverage_day_5
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[4].sunAverage | int }}"
+    - name: "NED windAverage day 5"
+      unique_id: ned_windaverage_day_5
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[4].windAverage | int }}"
+
+    - name: "NED date day 6"
+      unique_id: ned_date_day_6
+      value_template: "{{ value_json[5].date }}"
+    - name: "NED sunHeight day 6"
+      unique_id: ned_sunheight_day_6
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[5].sunHeight | int }}"
+    - name: "NED windHeight day 6"
+      unique_id: ned_windheight_day_6
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[5].windHeight | int }}"
+    - name: "NED sunAverage day 6"
+      unique_id: ned_sunaverage_day_6
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[5].sunAverage | int }}"
+    - name: "NED windAverage day 6"
+      unique_id: ned_windaverage_day_6
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[5].windAverage | int }}"
+
+    - name: "NED date day 7"
+      unique_id: ned_date_day_7
+      value_template: "{{ value_json[6].date }}"
+    - name: "NED sunHeight day 7"
+      unique_id: ned_sunheight_day_7
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[6].sunHeight | int }}"
+    - name: "NED windHeight day 7"
+      unique_id: ned_windheight_day_7
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[6].windHeight | int }}"
+    - name: "NED sunAverage day 7"
+      unique_id: ned_sunaverage_day_7
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[6].sunAverage | int }}"
+    - name: "NED windAverage day 7"
+      unique_id: ned_windaverage_day_7
+      unit_of_measurement: "%"
+      value_template: "{{ value_json[6].windAverage | int }}"
