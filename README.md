@@ -1,46 +1,60 @@
-# 🌤️ NED Energy Dashboard for Home Assistant
+# 🌤️ NED Energy Weather in Home Assistant
 
-Een visueel dashboard voor Home Assistant geïnspireerd op de **verwachte zon- en windenergieproductie** van [ned.nl](https://ned.nl).  
-Het project toont de dagelijkse zon- en windopbrengst in Nederland op een aantrekkelijke manier, vergelijkbaar met de officiële NED-weergave — maar dan volledig geïntegreerd in je eigen Home Assistant omgeving.
+Een visueel dashboard voor Home Assistant geïnspireerd op de **verwachte zon- en windenergieproductie** van [NED](https://ned.nl).
 
----
+Op de website van NED kun je zien op welke dagen in de komende week de meeste zon- en windenergie wordt opgewekt. Dat wilde ik ook in mijn eigen Home Assistant-dashboard kunnen zien, dus heb ik deze set REST- en template-sensoren gemaakt, gecombineerd met een ApexCharts-kaart.
 
-## 🔍 Inspiratie
-
-Op de website van NED is te zien hoeveel duurzame elektriciteit (zon & wind) er in de komende week wordt verwacht.  
-Die stijl wilde ik graag ook in Home Assistant kunnen weergeven — met herkenbare blauwe en gele kolommen, en een stippellijn die het gemiddelde van de dag toont.
-
-Zo ontstond dit kleine project: een combinatie van REST-sensors, template-sensors en een [ApexCharts-card](https://github.com/RomRider/apexcharts-card).
+Het resultaat: een duidelijke weergave van zon- en windopwekking per dag, inclusief een streepje dat het gemiddelde per dag weergeeft.
 
 ---
 
-## 🧩 Bestanden
+## 🧩 Bestanden in deze repo
 
-| Bestand | Omschrijving |
-|----------|---------------|
-| `rest.yaml` | REST-sensordefinities die de JSON-data van NED ophalen |
-| `template.yaml` | Template-sensors die o.a. de daglabels (MA, DI, WO…) genereren |
-| `ui-lovelace.yaml` | (optioneel) voorbeeldweergave voor ApexCharts |
-| `ned.png` | Originele NED-weergave ter inspiratie |
-| `inhomeassistant.png` | Resultaat in Home Assistant |
+- `rest.yaml`  
+  REST-sensoren die de JSON-data van NED ophalen (zon/wind per dag, inclusief averages).
+
+- `template.yaml`  
+  Template-sensoren voor o.a. daglabels (MON, TUE, …) en afgeleide waarden.
+
+- `ned.png`  
+  Screenshot van de originele NED-weergave (inspiratie).
+
+- `homeassistant.png`  
+  Screenshot van de weergave in Home Assistant.
 
 ---
 
-## 🖼️ Voorbeeld
+## 🖼️ Voorbeelden
 
 ### Originele weergave op ned.nl
+
 ![NED voorbeeld](ned.png)
 
-### Dezelfde data in Home Assistant
-![Home Assistant versie]homeassistant.png)
+### Weergave in Home Assistant
+
+![Home Assistant versie](homeassistant.png)
 
 ---
 
 ## ⚙️ Installatie
 
-1. **Download of kopieer** de bestanden  
-   - Plaats `rest.yaml` en `template.yaml` in je `config`-map (bijv. `config/integrations/` of direct in `packages/`).
-2. Voeg in `configuration.yaml` toe:
+### 1. Vereisten
+
+- Home Assistant  
+- [ApexCharts-card](https://github.com/RomRider/apexcharts-card) (via HACS installeren)  
+- Werkende internetverbinding (voor het ophalen van de NED JSON)
+
+### 2. REST- en template-sensoren toevoegen
+
+1. Open je `configuration.yaml`.
+2. Kopieer de inhoud van `rest.yaml` en plak die onder de sleutel `rest:`  
+   (of voeg een `rest:`-blok toe als je die nog niet hebt):
+
    ```yaml
-   homeassistant:
-     packages: !include_dir_named integrations
+   rest:
+     # inhoud uit rest.yaml
+     - resource: "https://ned.nl/sites/default/files/dataset_chart_jsons/Energy_Weather_Forecast.json"
+       scan_interval: 14400
+       timeout: 10
+       sensor:
+         # ...
