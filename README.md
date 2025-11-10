@@ -32,7 +32,7 @@ Zo ontstond dit kleine project: een combinatie van REST-sensors, template-sensor
 ![NED voorbeeld](ned.png)
 
 ### Dezelfde data in Home Assistant
-![Home Assistant versie]nhomeassistant.png)
+![Home Assistant versie]homeassistant.png)
 
 ---
 
