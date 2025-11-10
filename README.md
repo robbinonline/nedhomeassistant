@@ -10,7 +10,7 @@ Het project toont de dagelijkse zon- en windopbrengst in Nederland op een aantre
 Op de website van NED is te zien hoeveel duurzame elektriciteit (zon & wind) er in de komende week wordt verwacht.  
 Die stijl wilde ik graag ook in Home Assistant kunnen weergeven — met herkenbare blauwe en gele kolommen, en een stippellijn die het gemiddelde van de dag toont.
 
-➡️ Zo ontstond dit kleine project: een combinatie van REST-sensors, template-sensors en een [ApexCharts-card](https://github.com/RomRider/apexcharts-card).
+Zo ontstond dit kleine project: een combinatie van REST-sensors, template-sensors en een [ApexCharts-card](https://github.com/RomRider/apexcharts-card).
 
 ---
 
@@ -32,7 +32,7 @@ Die stijl wilde ik graag ook in Home Assistant kunnen weergeven — met herkenba
 ![NED voorbeeld](ned.png)
 
 ### Dezelfde data in Home Assistant
-![Home Assistant versie](inhomeassistant.png)
+![Home Assistant versie]nhomeassistant.png)
 
 ---
 
