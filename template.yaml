@@ -1,0 +1,70 @@
+- sensor:
+    - name: "NED day 1 label"
+      unique_id: ned_day_1_label
+      state: >
+        {% set d = states('sensor.ned_date_day_1') %}
+        {% if d not in ['unknown', 'unavailable', ''] %}
+          {{ as_timestamp(d) | timestamp_custom('%a') | upper }}
+        {% else %}
+          N/A
+        {% endif %}
+
+    - name: "NED day 2 label"
+      unique_id: ned_day_2_label
+      state: >
+        {% set d = states('sensor.ned_date_day_2') %}
+        {% if d not in ['unknown', 'unavailable', ''] %}
+          {{ as_timestamp(d) | timestamp_custom('%a') | upper }}
+        {% else %}
+          N/A
+        {% endif %}
+
+    - name: "NED day 3 label"
+      unique_id: ned_day_3_label
+      state: >
+        {% set d = states('sensor.ned_date_day_3') %}
+        {% if d not in ['unknown', 'unavailable', ''] %}
+          {{ as_timestamp(d) | timestamp_custom('%a') | upper }}
+        {% else %}
+          N/A
+        {% endif %}
+
+    - name: "NED day 4 label"
+      unique_id: ned_day_4_label
+      state: >
+        {% set d = states('sensor.ned_date_day_4') %}
+        {% if d not in ['unknown', 'unavailable', ''] %}
+          {{ as_timestamp(d) | timestamp_custom('%a') | upper }}
+        {% else %}
+          N/A
+        {% endif %}
+
+    - name: "NED day 5 label"
+      unique_id: ned_day_5_label
+      state: >
+        {% set d = states('sensor.ned_date_day_5') %}
+        {% if d not in ['unknown', 'unavailable', ''] %}
+          {{ as_timestamp(d) | timestamp_custom('%a') | upper }}
+        {% else %}
+          N/A
+        {% endif %}
+
+    - name: "NED day 6 label"
+      unique_id: ned_day_6_label
+      state: >
+        {% set d = states('sensor.ned_date_day_6') %}
+        {% if d not in ['unknown', 'unavailable', ''] %}
+          {{ as_timestamp(d) | timestamp_custom('%a') | upper }}
+        {% else %}
+          N/A
+        {% endif %}
+
+    - name: "NED day 7 label"
+      unique_id: ned_day_7_label
+      state: >
+        {% set d = states('sensor.ned_date_day_7') %}
+        {% if d not in ['unknown', 'unavailable', ''] %}
+          {{ as_timestamp(d) | timestamp_custom('%a') | upper }}
+        {% else %}
+          N/A
+        {% endif %}
