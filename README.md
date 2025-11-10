@@ -1,84 +1,30 @@
 # 🌤️ NED Energy Weather in Home Assistant
 
-Een visueel dashboard voor Home Assistant geïnspireerd op de **verwachte zon- en windenergieproductie** van [NED](https://ned.nl).
-
-Op de website van NED kun je zien op welke dagen in de komende week de meeste zon- en windenergie wordt opgewekt. Dat wilde ik ook in mijn eigen Home Assistant-dashboard kunnen zien, dus heb ik deze set REST- en template-sensoren gemaakt, gecombineerd met een ApexCharts-kaart.
-
-Het resultaat: een duidelijke weergave van zon- en windopwekking per dag, inclusief een streepje dat het gemiddelde per dag weergeeft.
-
----
-
-## 🧩 Bestanden in deze repo
-
-- `rest.yaml`  
-  REST-sensoren die de JSON-data van NED ophalen (zon/wind per dag, inclusief averages).
-
-- `template.yaml`  
-  Template-sensoren voor o.a. daglabels (MON, TUE, …) en afgeleide waarden.
-
-- `ned.png`  
-  Screenshot van de originele NED-weergave (inspiratie).
-
-- `homeassistant.png`  
-  Screenshot van de weergave in Home Assistant.
+Geïnspireerd op de **verwachte zon- en windenergieproductie** van [NED.nl](https://ned.nl).  
+Deze Home Assistant-integratie toont per dag de verwachte zonne- en windopwekking in Nederland — rechtstreeks in je eigen dashboard, met dezelfde herkenbare stijl.
 
 ---
 
 ## 🖼️ Voorbeelden
 
-### Originele weergave op ned.nl
-
+### Originele weergave op NED.nl
 ![NED voorbeeld](ned.png)
 
 ### Weergave in Home Assistant
-
 ![Home Assistant versie](homeassistant.png)
 
 ---
 
 ## ⚙️ Installatie
 
-### 1. Vereisten
+1. **Open je Home Assistant-configuratie**  
+   Voeg de inhoud van de bestanden **`rest.yaml`** en **`template.yaml`** toe aan je `configuration.yaml`.
 
-- Home Assistant  
-- [ApexCharts-card](https://github.com/RomRider/apexcharts-card) (via HACS installeren)  
-- Werkende internetverbinding (voor het ophalen van de NED JSON)
+2.	**Herlaad de integraties**
+	Ga in Home Assistant naar Ontwikkelaarstools → YAML en kies:
+	•	“Herlaad REST-entiteiten”
+	•	“Herlaad Template-entiteiten”
 
-### 2. REST- en template-sensoren toevoegen
+3.	**Voeg de Lovelace-kaart toe**
+	Maak een handmatige kaart in je dashboard en plak onderstaande configuratie.
 
-1. Open je `configuration.yaml`.
-2. Kopieer de inhoud van `rest.yaml` en plak die onder de sleutel `rest:`  
-   (of voeg een `rest:`-blok toe als je die nog niet hebt):
-
-   ```yaml
-   rest:
-     # inhoud uit rest.yaml
-     - resource: "https://ned.nl/sites/default/files/dataset_chart_jsons/Energy_Weather_Forecast.json"
-       scan_interval: 14400
-       timeout: 10
-       sensor:
-         # ...
-
-### 3.	Kopieer de inhoud van template.yaml en plak die onder de sleutel template:
-
-	### 4.	Sla configuration.yaml op.
-	### 5.	Herstart Home Assistant.
-
-Na de herstart zou je o.a. de volgende entiteiten moeten zien in Ontwikkelaarstools → Staten:
-	•	sensor.ned_sunheight_day_1 t/m sensor.ned_sunheight_day_7
-	•	sensor.ned_windheight_day_1 t/m sensor.ned_windheight_day_7
-	•	sensor.ned_sunaverage_day_1 t/m sensor.ned_sunaverage_day_7
-	•	sensor.ned_windaverage_day_1 t/m sensor.ned_windaverage_day_7
-	•	sensor.ned_day_1_label t/m sensor.ned_day_7_label (MON, TUE, …)
-
-⸻
-
-📊 Lovelace / ApexCharts-kaart
-
-Voeg in je dashboard een Handmatige kaart (Manual / YAML) toe en plak onderstaande configuratie.
-Deze kaart toont:
-	•	Blauwe kolommen voor Wind
-	•	Gele kolommen voor Zon
-	•	In elke kolom een donker streepje op de hoogte van de dagelijkse gemiddelde waarde (windAverage / sunAverage)
-	•	Geen tooltip / hover-popups
-	•	Geen waardes in de legend, alleen namen
