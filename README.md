@@ -58,3 +58,27 @@ Het resultaat: een duidelijke weergave van zon- en windopwekking per dag, inclus
        timeout: 10
        sensor:
          # ...
+
+### 3.	Kopieer de inhoud van template.yaml en plak die onder de sleutel template:
+
+	### 4.	Sla configuration.yaml op.
+	### 5.	Herstart Home Assistant.
+
+Na de herstart zou je o.a. de volgende entiteiten moeten zien in Ontwikkelaarstools → Staten:
+	•	sensor.ned_sunheight_day_1 t/m sensor.ned_sunheight_day_7
+	•	sensor.ned_windheight_day_1 t/m sensor.ned_windheight_day_7
+	•	sensor.ned_sunaverage_day_1 t/m sensor.ned_sunaverage_day_7
+	•	sensor.ned_windaverage_day_1 t/m sensor.ned_windaverage_day_7
+	•	sensor.ned_day_1_label t/m sensor.ned_day_7_label (MON, TUE, …)
+
+⸻
+
+📊 Lovelace / ApexCharts-kaart
+
+Voeg in je dashboard een Handmatige kaart (Manual / YAML) toe en plak onderstaande configuratie.
+Deze kaart toont:
+	•	Blauwe kolommen voor Wind
+	•	Gele kolommen voor Zon
+	•	In elke kolom een donker streepje op de hoogte van de dagelijkse gemiddelde waarde (windAverage / sunAverage)
+	•	Geen tooltip / hover-popups
+	•	Geen waardes in de legend, alleen namen
